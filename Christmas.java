@@ -12,10 +12,13 @@ public class Christmas
 	public static void main(String[] args) throws IOException
 	{
 		List<Elf> elves = readElves();
-		for(int i = 0; i < elves.size(); i++)
+		List<Toy> toys = readToys();
+		for(int i = 0; i < toys.size(); i++)
 		{
-			System.out.println(elves.get(i));
+			System.out.println(toys.get(i));
 		}
+		
+		
 	}
 	
 	public static List<Elf> readElves() throws IOException
@@ -48,5 +51,58 @@ public class Christmas
 		
 		reader.close();
 		return out;
+	}
+	
+	public static List<Toy> readToys() throws IOException
+	{
+		List<Toy> toys = new ArrayList<Toy>();
+		
+		List<String> names = new ArrayList<>();
+		List<Integer> constructionTimes = new ArrayList<>();
+		List<Integer> firstOrder = new ArrayList<>();
+		List<Integer> secondOrder = new ArrayList<>();
+		List<Integer> thirdOrder = new ArrayList<>();
+	
+		BufferedReader reader = new BufferedReader(new FileReader(new File("/Users/cl20stebbinsd/Downloads/data_files/data files/ToyList.txt")));
+		String current = reader.readLine();
+		while(current != null)
+		{
+			names.add(current);
+			current = reader.readLine();
+		}
+		
+		reader = new BufferedReader(new FileReader(new File("/Users/cl20stebbinsd/Downloads/data_files/data files/ToyConstructionTime.txt")));
+		String[] temp = reader.readLine().split(", ");
+		
+		for(int i = 0; i < temp.length; i++)
+		{
+			constructionTimes.add(Integer.parseInt(temp[i]));
+		}
+	
+		reader = new BufferedReader(new FileReader(new File("/Users/cl20stebbinsd/Downloads/data_files/data files/ToyOrders.txt")));
+		String[] order = reader.readLine().split(", ");;	
+		for(int i = 0; i < order.length; i++)
+		{
+			firstOrder.add(Integer.parseInt(order[i]));
+		}
+		
+		order = reader.readLine().split(", ");;	
+		for(int i = 0; i < order.length; i++)
+		{
+			secondOrder.add(Integer.parseInt(order[i]));
+		}
+		
+		order = reader.readLine().split(", ");;	
+		for(int i = 0; i < order.length; i++)
+		{
+			thirdOrder.add(Integer.parseInt(order[i]));
+		}
+		
+		for(int i = 0; i < names.size(); i++)
+		{
+			toys.add(new Toy(names.get(i), constructionTimes.get(i), firstOrder.get(i), secondOrder.get(i), thirdOrder.get(i)));
+		}
+		
+		return toys;
 	}
 }

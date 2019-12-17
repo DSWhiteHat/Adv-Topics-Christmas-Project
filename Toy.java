@@ -19,8 +19,14 @@ public class Toy
 	
 	public String toString()
 	{
-		return "Toy [constructionTime=" + constructionTime + ", firstOrder=" + firstOrder + ", name=" + name
-				+ ", secondOrder=" + secondOrder + ", thirdOrder=" + thirdOrder + "]";
+		String out = name + ":\n";
+		
+		out += "\tConstruction Time: " + constructionTime + "\n";
+		out += "\tAmount in First Order: " + firstOrder + "\n";
+		out += "\tAmount in Second Order: " + secondOrder + "\n";
+		out += "\tAmount in Third Order: " + thirdOrder + "\n";
+
+		return out;
 	}
 
 	public String getName() { return name; }

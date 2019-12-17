@@ -42,53 +42,18 @@ public class Elf
 		return out;
 	}
 
-	public int getId()
-	{
-		return id;
-	}
-
-	public void setId(int id)
-	{
-		this.id = id;
-	}
-
-	public boolean[] getToys()
-	{
-		return toys;
-	}
-
-	public void setToys(boolean[] toys)
-	{
-		this.toys = toys;
-	}
-
-	public int getStartTime()
-	{
-		return startTime;
-	}
-
-	public void setStartTime(int startTime)
-	{
-		this.startTime = startTime;
-	}
-
-	public int getEndTime()
-	{
-		return endTime;
-	}
-
-	public void setEndTime(int endTime)
-	{
-		this.endTime = endTime;
-	}
-
-	public int getRate()
-	{
-		return rate;
-	}
-
-	public void setRate(int rate)
-	{
-		this.rate = rate;
-	}
+	public int getId() { return id; }
+	public void setId(int id) { this.id = id; }
+	
+	public boolean[] getToys() { return toys; }
+	public void setToys(boolean[] toys) { this.toys = toys; }
+	
+	public int getStartTime() { return startTime; }
+	public void setStartTime(int startTime) { this.startTime = startTime; }
+	
+	public int getEndTime() { return endTime; }
+	public void setEndTime(int endTime) { this.endTime = endTime; }
+	
+	public int getRate() { return rate; }
+	public void setRate(int rate) { this.rate = rate; }
 }
